@@ -36,28 +36,31 @@
           <div class="col-md-5 offset-md-2 py-3">
             <h2>Novedades</h2>
             <ul class="lista-novedades">
-              <li><a href="#" data-toggle="modal" data-target="#modalEjemplo"><img src="images/novedades01.jpg" alt="novedades">Nuevas Recetas</a></li>
-              <li><a href="#" data-toggle="modal" data-target="#modalEjemplo"><img src="images/novedades01.jpg" alt="novedades">Nuevas Recetas</a></li>
-              <li><a href="#" data-toggle="modal" data-target="#modalEjemplo"><img src="images/novedades01.jpg" alt="novedades">Nuevas Recetas</a></li>
-              <li><a href="#" data-toggle="modal" data-target="#modalEjemplo"><img src="images/novedades01.jpg" alt="novedades">Nuevas Recetas</a></li>
-              <li><a href="#" data-toggle="modal" data-target="#modalEjemplo"><img src="images/novedades01.jpg" alt="novedades">Nuevas Recetas</a></li>         
+              {{#each novedades}}
+              <li>
+                <a href="javascript:void(0)" data-toggle="modal" data-target="#modal{{id}}"><img src="images/novedades01.jpg" alt="novedades">{{titulo}}</a>
+              </li>
+              {{/each}}
             </ul>
           </div>
-          <div class="modal fade" id="modalEjemplo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          {{#each novedades}}
+          <div class="modal fade" id="modal{{id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">Nuevas Recetas!</h5>
+                  <h5 class="modal-title" id="staticBackdropLabel"> {{titulo}} </h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam illum sit nisi consectetur cumque ducimus necessitatibus iusto enim fuga maxime!</p>
+                  <h6> {{subtitulo}} </h6>
+                  <p> {{cuerpo}} </p>
                 </div>
                </div>
               </div>
             </div>
+            {{/each}}
           <div class="col-md-3">
             <div class="rounded py-3 testimonios">
               <h2 class="text-center">Testimonios</h2>
